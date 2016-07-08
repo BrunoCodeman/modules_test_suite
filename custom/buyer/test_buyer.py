@@ -18,20 +18,20 @@ class AdminTest(unittest.TestCase):
         self.fields = json.loads(fields_file)
         self.browser = BuyerData()
 
-    def tearDown(self):
-        pass
+  #  def tearDown(self):
+   #     pass
 
-    def test_must_pay_product_with_credit_card(self):
-        pass
+    #def test_must_pay_product_with_credit_card(self):
+    #    pass
 
-    def test_must_redirect_if_payment_is_concluded(self):
-        pass
+    #def test_must_redirect_if_payment_is_concluded(self):
+    #    pass
 
-    def test_must_load_card_data_when_credit_card_change(self):
-        pass
+    #def test_must_load_card_data_when_credit_card_change(self):
+    #    pass
 
-    def test_must_load_installments_when_credit_card_change(self):
-        pass
+   # def test_must_load_installments_when_credit_card_change(self):
+   #     pass
 
 
 if __name__ == '__main__':
