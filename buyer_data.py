@@ -1,3 +1,5 @@
+# coding: utf-8
+
 import json
 from base_config import BaseConfig
 
@@ -8,7 +10,7 @@ class BuyerData(BaseConfig):
 
     def __init__(self):
         super(BuyerData, self).__init__()
-        config_file = open('config_buyer.json', 'r').read()
+        config_file = open('buyer_data.json', 'r').read()
         self.config = json.loads(config_file)
 
     def fill_customer_name(self, full_name):

@@ -1,10 +1,11 @@
-#coding: utf-8
+# coding: utf-8
+
 import time
 
 try:
     from splinter import Browser
 except Exception, e:
-    install_command = 'sudo pip install selenium splinter'
+    install_command = 'sudo pip install -r requirements.txt'
     print("Error on import - %s" % e)
     print('Tip: You probably forgot to run "%s".' % install_command)
     exit()
@@ -19,7 +20,6 @@ class BaseConfig(object):
         self.countries = ("MLA", "MLB", "MLC", "MCO", "MLM", "MLV", "MPE")
         self.currencies = ('ARS', 'BRL', 'MEX', 'CHI', 'PEN', 'VEF', 'COP')
 
-
     def visit_url(self, url_to_visit):
         self._browser.visit(url_to_visit)
         return self
@@ -33,6 +33,15 @@ class BaseConfig(object):
     def wait(self, seconds):
         time.sleep(seconds)
         return self
+
+    def login(self, login_url, username, password):
+        raise NotImplementedError
+
+    def url(self):
+        return self._browser.url
+
+    def exit(self):
+        self._browser.quit()
 
 if __name__ == '__main__':
     try:

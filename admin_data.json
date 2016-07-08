@@ -80,5 +80,6 @@
 			"public_key": "TEST-bef28df6-2c17-4855-b762-81afc98f1693",
 			"access_token": "TEST-615948908823631-060918-5f10fe100d903ba929887b796ebaef39__LD_LC__-216731142"
 		}]
-	}
+	},
+	"login":{"username": "admin", "password": "admin"}
 }
