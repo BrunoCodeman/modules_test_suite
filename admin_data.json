@@ -19,8 +19,7 @@
 			"client_secret": "G1YyZNeO54jmuxJ4QNwOGrf0rEzW4dJe",
 			"public_key": "TEST-c9e985fc-34d2-4518-a8f0-d1886b37ba86",
 			"access_token": "TEST-6990185330840813-011415-4323cd45dfe446411e241f052e7bbebd__LD_LB__-200429801"
-		},
-		{
+		}, {
 			"user": "TESTZYTRBYGO",
 			"password": "qatest1265",
 			"user_id": 210968992,
@@ -81,5 +80,28 @@
 			"access_token": "TEST-615948908823631-060918-5f10fe100d903ba929887b796ebaef39__LD_LC__-216731142"
 		}]
 	},
-	"login":{"username": "admin", "password": "admin"}
+	"common_fields": {
+		"status":"1",
+		"sales_country":"MLB",
+		"category":"computing",
+		"debug_mode":"1",
+		"installments":"24",
+		"payment_methods":["visa","master"],
+		"login": {
+			"username": "admin",
+			"password": "admin"
+		},
+		"default_statuses": {
+			"default": "2",
+			"cancelled": "7",
+			"refunded": "11",
+			"completed": "5",
+			"denied": "8",
+			"pending": "1",
+			"in_progress": "2",
+			"mediation": "16",
+			"chargeback": "13"
+		}
+	}
+
 }

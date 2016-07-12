@@ -25,7 +25,8 @@ class BaseConfig(object):
         return self
 
     def get_element_in_page(self, element_name):
-        return self._browser.find_by_id(element_name).first
+        elems =  self._browser.find_by_id(element_name)
+        return elems.first if elems else self._browser.find_by_name(element_name).first
 
     def then(self):
         return self
