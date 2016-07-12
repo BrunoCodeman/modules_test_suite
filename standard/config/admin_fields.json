@@ -1,0 +1,62 @@
+{
+	"custom": {
+		"status": "mp_transparente_status",
+		"country": "mp_transparente_country",
+		"checkout_type": "",
+		"public_key": "mp_transparente_public_key",
+		"access_token": "mp_transparente_access_token",
+		"category": "mp_transparente_category_id",
+		"installments": "mp_transparente_installments",
+		"accepted_payment_methods": "mp_transparente_methods[]",
+		"default_order_status": "mp_transparente_order_status_id",
+		"completed_order_status": "mp_transparente_order_status_id_completed",
+		"in_progress_order_status": "mp_transparente_order_status_id_in_process",
+		"pending_order_status": "mp_transparente_order_status_id_pending",
+		"denied_order_status": "mp_transparente_order_status_id_rejected",
+		"cancelled_order_status": "mp_transparente_order_status_id_canceled",
+		"mediation_order_status": "mp_transparente_order_status_id_in_mediation",
+		"refunded_order_status": "mp_transparente_order_status_id_refunded",
+		"chargeback_order_status": "mp_transparente_order_status_chargeback"
+	},
+	"ticket": {
+		"status": "mp_transparente_status",
+		"access_token": "mp_transparente_access_token",
+		"category": "mp_transparente_category_id",
+		"accepted_payment_methods": "mp_transparente_methods[]",
+		"default_order_status": "mp_transparente_order_status_id",
+		"completed_order_status": "mp_transparente_order_status_id_completed",
+		"in_progress_order_status": "mp_transparente_order_status_id_in_process",
+		"pending_order_status": "mp_transparente_order_status_id_pending",
+		"denied_order_status": "mp_transparente_order_status_id_rejected",
+		"cancelled_order_status": "mp_transparente_order_status_id_canceled",
+		"mediation_order_status": "mp_transparente_order_status_id_in_mediation",
+		"refunded_order_status": "mp_transparente_order_status_id_refunded",
+		"chargeback_order_status": "mp_transparente_order_status_chargeback"
+	},
+	"standard": {
+		"status": "mp_transparente_status",
+		"country": "mp_transparente_country",
+		"checkout_type": "",
+		"client_id": "",
+		"client_secret": "",
+		"category": "mp_transparente_category_id",
+		"debug_mode": "",
+		"sandbox": "",
+		"autoreturn": "",
+		"installments": "mp_transparente_installments",
+		"accepted_payment_methods": "mp_transparente_methods[]",
+		"default_order_status": "mp_transparente_order_status_id",
+		"completed_order_status": "mp_transparente_order_status_id_completed",
+		"in_progress_order_status": "mp_transparente_order_status_id_in_process",
+		"pending_order_status": "mp_transparente_order_status_id_pending",
+		"denied_order_status": "mp_transparente_order_status_id_rejected",
+		"cancelled_order_status": "mp_transparente_order_status_id_canceled",
+		"mediation_order_status": "mp_transparente_order_status_id_in_mediation",
+		"refunded_order_status": "mp_transparente_order_status_id_refunded",
+		"chargeback_order_status": "mp_transparente_order_status_chargeback"
+	},
+	"login": {
+		"username": "input-username",
+		"password": "input-password"
+	}
+}

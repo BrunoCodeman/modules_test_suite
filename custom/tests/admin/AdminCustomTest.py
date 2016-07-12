@@ -1,42 +1,25 @@
 # coding: utf-8
-
 import unittest
 import os.path
 import json
 from datetime import datetime
-from admin_data import AdminData
+from admin_page import AdminPage
 
 
-class AdminTest(unittest.TestCase):
+class AdminCustomTest(unittest.TestCase):
 
     def setUp(self):
-        print("starting at: %s " % datetime.now().strftime("%x %X"))
-        self.base_url = 'http://172.17.0.3/oc22/'
-        json_file = open(
-            os.path.dirname(__file__) + '/../../admin_data.json', 'r').read()
-        fields_file = open(
-            os.path.dirname(__file__) + '/../../admin_fields.json', 'r').read()
-        self.config = json.loads(json_file)
-        self.fields = json.loads(fields_file)
-        self.admin_data = AdminData()
-        self.login("admin/",
-                   self.config["common_fields"]['login']['username'],
-                   self.config["common_fields"]['login']['password'])
-
-    def login(self, login_url, username, password):
-        I = self.admin_data
-        url_to_visit = self.base_url + login_url
-        I.visit_url(url_to_visit).then().get_element_in_page(
-            self.fields['login']['username']).value = username
-        I.get_element_in_page(
-            self.fields['login']['password']).value = username
-        I._browser.find_by_css(".btn-primary").first.click()
-        I.wait(3)
-        self.assertNotEqual(url_to_visit, I.url())
-        self.token = "&token=%s" % self.admin_data.url().split('token=')[-1]
-
+        print("\nstarting at: %s " % datetime.now().strftime("%x %X"))
+        self.base_url = 'http://localhost:8888/oc21/'
+        json_file = open(os.path.dirname(__file__) + '/../../admin_data.json', 'r')
+        fields_file = open(os.path.dirname(__file__) + '/../../admin_fields.json', 'r')
+        self.config = json.loads(json_file.read())
+        self.fields = json.loads(fields_file.read())
+        self.admin_page = AdminPage()
+        self.admin_page.login(self.config["common_fields"]['login'][
+                              'username'], self.config["common_fields"]['login']['password'])
     def tearDown(self):
-        print("finished at: %s " % datetime.now().strftime("%x %X"))
+        print("\nfinished at: %s " % datetime.now().strftime("%x %X"))
         self.admin_data.exit()
 
     def test_must_load_payment_methods(self):
@@ -59,7 +42,8 @@ class AdminTest(unittest.TestCase):
         country = self.config["common_fields"]["sales_country"]
         module_url = "admin/index.php?route=payment/mp_transparente"
         url = "%s%s%s" % (self.base_url, module_url, self.token)
-        I.visit_url(url).then()\
+        I.visit_url(url)\
+            .then()\
             .select_status(self.config["common_fields"]["status"])\
             .then()\
             .select_country(self.config["common_fields"]["sales_country"])\
@@ -72,7 +56,9 @@ class AdminTest(unittest.TestCase):
             .then()\
             .select_maximum_installments(self.config["common_fields"]["installments"])\
             .then()\
-            .check_payment_methods(self.config["common_fields"]["payment_methods"])
+            .check_payment_methods(self.config["common_fields"]["payment_methods"])\
+            .then()\
+            .click_on_button("btn_save")
 
         for k, v in self.config["common_fields"]["default_statuses"].items():
             I.select_order_status(k, v)
@@ -114,14 +100,16 @@ class AdminTest(unittest.TestCase):
         module_url = "admin/index.php?route=payment/mp_transparente"
         url = "%s%s%s" % (self.base_url, module_url, self.token)
         I.visit_url(url)
-        payment_methods = I._browser.find_by_name(self.fields["admin"]["accepted_payment_methods"])
+        payment_methods = I._browser.find_by_name(
+            self.fields["admin"]["accepted_payment_methods"])
         selected_before = filter(lambda x: x.value, payment_methods)
         I.get_element_in_page(self.fields["admin"]["country"]).select("MLA")
         I.wait(3)
 
-        new_payment_methods = I._browser.find_by_name(self.fields["admin"]["accepted_payment_methods"])
+        new_payment_methods = I._browser.find_by_name(
+            self.fields["admin"]["accepted_payment_methods"])
         selected_now = filter(lambda x: x.value, new_payment_methods)
-        
+
         for val in selected_before:
             if val not in selected_now:
                 are_different = True

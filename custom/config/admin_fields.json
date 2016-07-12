@@ -1,16 +1,17 @@
 {
-	"admin": {
+	"urls":{
+		"base": "http://localhost:8888/oc21/",
+		"login":"admin/",
+		"admin":"/admin/index.php?route=payment/mp_transparente",
+		"buyer":""
+	}
+	"custom": {
 		"status": "mp_transparente_status",
 		"country": "mp_transparente_country",
 		"checkout_type": "",
-		"client_id": "",
-		"client_secret": "",
 		"public_key": "mp_transparente_public_key",
 		"access_token": "mp_transparente_access_token",
 		"category": "mp_transparente_category_id",
-		"debug_mode": "",
-		"sandbox": "",
-		"autoreturn": "",
 		"installments": "mp_transparente_installments",
 		"accepted_payment_methods": "mp_transparente_methods[]",
 		"default_order_status": "mp_transparente_order_status_id",
@@ -22,9 +23,10 @@
 		"mediation_order_status": "mp_transparente_order_status_id_in_mediation",
 		"refunded_order_status": "mp_transparente_order_status_id_refunded",
 		"chargeback_order_status": "mp_transparente_order_status_chargeback"
-	},
+	}
 	"login": {
 		"username": "input-username",
-		"password": "input-password"
+		"password": "input-password",
+		"button": ".btn-primary"
 	}
 }

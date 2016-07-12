@@ -1,12 +1,4 @@
-# coding: utf-8
-
-import unittest
-import os.path
-import json
-from buyer_data import BuyerData
-
-
-class AdminTest(unittest.TestCase):
+class AdminTest():
 
     def setUp(self):
         self.base_url = "http://localhost:8888/oc22/"
