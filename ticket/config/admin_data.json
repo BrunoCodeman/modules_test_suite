@@ -86,7 +86,7 @@
 		"category": "computing",
 		"debug_mode": "1",
 		"installments": "24",
-		"payment_methods": ["visa", "master"],
+		"payment_methods": ["bolbradesco"],
 		"login": {
 			"username": "admin",
 			"password": "admin"

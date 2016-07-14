@@ -24,35 +24,18 @@ class AdminCustomTest(unittest.TestCase):
 
     def test_must_load_payment_methods(self):
         I = self.admin_page
-        country = self.config["common_fields"]["sales_country"]
-        new_country = "MLA"
-        module_url = self.fields['urls']['admin']
+        module_url = "admin/index.php?route=payment/mp_transparente"
         url = "%s%s%s" % (self.base_url, module_url, self.token)
+        I.visit_url(url)
+        initial_payment_methods_length = I._browser.find_by_name(
+            "mp_transparente_methods[]")
 
-        I.visit_url(url)\
-            .then()\
-            .select_country(country)\
-            .then()\
-            .wait(3)
+        I.select_country("MLB").then().wait(5)
 
-
-        initial_list = I.get_list_of_elements_in_page(self.fields["custom"]["accepted_payment_methods"])
-        initial_length = len(initial_list)
-
-        I.visit_url(url)\
-            .then()\
-            .select_country(new_country)\
-            .then()\
-            .wait(3)
-        
-        final_list = I.get_list_of_elements_in_page(self.fields["custom"]["accepted_payment_methods"])
-        final_length = len(final_list)
-
-        self.assertGreater(initial_length, 0)
-        self.assertGreater(final_length, 0)
-        self.assertNotEqual(initial_length,
-                            final_length)
-###########################################################################
+        final_payment_methods_length = I._browser.find_by_name(
+            "mp_transparente_methods[]")
+        self.assertNotEqual(final_payment_methods_length,
+                            initial_payment_methods_length)
 
     def test_must_save_admin_data(self):
         I = self.admin_page

@@ -1,68 +1,56 @@
 import os.path
 import json
+import inspect
 from base_page import BasePage
 
 
 class AdminPage(BasePage):
 
     def __init__(self):
+
         super(AdminPage, self).__init__()
         config_file = open(os.path.dirname(__file__) +
                            '/../config/admin_fields.json', 'r').read()
         self.config = json.loads(config_file)
-
-    def fill_public_key(self, pk):
-        I = self
-        I.fill_field(self.config['custom']['public_key']).with_value(pk)
-        # self._browser.fill(self.config['admin']['public_key'], pk)
-        return self
+        my_name = inspect.currentframe()
+        print("executing %s" % my_name)
 
     def fill_access_token(self, access_token):
+        my_name = inspect.currentframe()
+        print("executing %s" % my_name)
         I = self
-        I.fill_field(self.config['custom'][
+        I.fill_field(self.config['ticket'][
                      'access_token']).with_value(access_token)
-        self._browser.fill(self.config['custom']['access_token'], access_token)
+        self._browser.fill(self.config['ticket']['access_token'], access_token)
         return self
 
     def select_debug_mode(self, debug_mode):
+        my_name = inspect.currentframe()
+        print("executing %s" % my_name)
         I = self
-        I.click_on_list(self.config['custom'][
+        I.click_on_list(self.config['ticket'][
                         'debug_mode']).then().select_element(debug_mode)
         # self._browser.select(self.config['admin']['debug_mode'], debug_mode)
         return self
 
     def select_status(self, status):
         I = self
-        I.click_on_list(self.config['custom']['status']
+        I.click_on_list(self.config['ticket']['status']
                         ).then().select_element(status)
         # self._browser.select(self.config['admin']['status'], status)
         return self
 
-    def select_maximum_installments(self, max_installments):
-        I = self
-        I.click_on_list(self.config['custom']['installments']).then(
-        ).select_element(max_installments)
-       # self._browser.select(self.config['admin']['installments'], max_installments)
-        return self
-
     def select_category(self, store_category):
         I = self
-        I.click_on_list(self.config['custom']['category']).then(
+        I.click_on_list(self.config['ticket']['category']).then(
         ).select_element(store_category)
         # self._browser.select(self.config['admin']['category'], store_category)
-        return self
-
-    def select_country(self, country):
-        I = self
-        I.click_on_list(self.config['custom'][
-                        'country']).then().select_element(country)
-        # self._browser.select(self.config['admin']['country'], country)
         return self
 
     def check_payment_methods(self, payment_methods=[]):
         I = self
         pm_elem = self._browser.find_by_name(
-            self.config['custom']['accepted_payment_methods'])
+            self.config['ticket']['accepted_payment_methods'])
         for pm in pm_elem:
             if pm.value in payment_methods:
                 pm.check()
@@ -70,7 +58,7 @@ class AdminPage(BasePage):
 
     def select_order_status(self, order_status, value):
         I, desired_status = self, '%s_order_status' % order_status
-        I.click_on_list(self.config['custom'][desired_status]).then().select_element(value)
+        I.click_on_list(self.config['ticket'][desired_status]).then().select_element(value)
         # self._browser.select(self.config['admin'][desired_status], value)
         return self
 

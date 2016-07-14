@@ -43,6 +43,14 @@ class BasePage(object):
             element_name).first
         return elem
 
+    def get_list_of_elements_in_page(self, elements_name):
+        """
+        Get an specific element in the page with the specified name. 
+        Returns the specific element.
+        """
+        elems = self._browser.find_by_name(elements_name)
+        return elems if elems else self._browser.find_by_id(elements_name)
+
     def click_on_button(self, button_name):
         """
         Click on a button in the page with the specified name
@@ -69,7 +77,8 @@ class BasePage(object):
         """
         Semantic method to select an element inside a DropDown List
         """
-        self.__set_element(field_name)
+        self.__set_element(element_name)
+        self.get_element_in_page(element_name).click()
         return self
 
     def select_element(self, list_name):

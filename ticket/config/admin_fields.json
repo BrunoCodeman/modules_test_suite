@@ -1,0 +1,30 @@
+{
+	"urls": {
+		"base": "http://172.17.0.3/oc22/",
+		"login": "admin/",
+		"admin": "/admin/index.php?route=payment/mp_ticket"
+	},
+	"ticket": {
+		"status": "mp_ticket_status",
+		"country": "mp_ticket_country",
+		"checkout_type": "",
+		"debug":"mp_ticket_debug",
+		"access_token": "mp_ticket_access_token",
+		"category": "mp_ticket_category_id",
+		"accepted_payment_methods": "mp_ticket_methods[]",
+		"default_order_status": "mp_ticket_order_status_id",
+		"completed_order_status": "mp_ticket_order_status_id_completed",
+		"in_progress_order_status": "mp_ticket_order_status_id_in_process",
+		"pending_order_status": "mp_ticket_order_status_id_pending",
+		"denied_order_status": "mp_ticket_order_status_id_rejected",
+		"cancelled_order_status": "mp_ticket_order_status_id_canceled",
+		"mediation_order_status": "mp_ticket_order_status_id_in_mediation",
+		"refunded_order_status": "mp_ticket_order_status_id_refunded",
+		"chargeback_order_status": "mp_ticket_order_status_chargeback"
+	},
+	"login": {
+		"username": "input-username",
+		"password": "input-password",
+		"button": ".btn-primary"
+	}
+}

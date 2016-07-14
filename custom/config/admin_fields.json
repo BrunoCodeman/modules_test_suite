@@ -1,10 +1,9 @@
 {
-	"urls":{
-		"base": "http://localhost:8888/oc21/",
-		"login":"admin/",
-		"admin":"/admin/index.php?route=payment/mp_transparente",
-		"buyer":""
-	}
+	"urls": {
+		"base": "http://172.17.0.3/oc22/",
+		"login": "admin/",
+		"admin": "/admin/index.php?route=payment/mp_transparente"
+	},
 	"custom": {
 		"status": "mp_transparente_status",
 		"country": "mp_transparente_country",
@@ -23,7 +22,7 @@
 		"mediation_order_status": "mp_transparente_order_status_id_in_mediation",
 		"refunded_order_status": "mp_transparente_order_status_id_refunded",
 		"chargeback_order_status": "mp_transparente_order_status_chargeback"
-	}
+	},
 	"login": {
 		"username": "input-username",
 		"password": "input-password",

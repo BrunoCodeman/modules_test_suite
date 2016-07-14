@@ -1,0 +1,20 @@
+{
+	"user": {
+		"full_name": "",
+		"email": "",
+		"address": "",
+		"zipcode": "",
+		"country": "",
+		"state": "",
+		"card_number": "",
+		"expiration_month": "",
+		"expiration_year": "",
+		"cvv": "",
+		"installments": ""
+	},
+	"login": {
+		"username": "",
+		"password": "",
+		"button": ""
+	}
+}
