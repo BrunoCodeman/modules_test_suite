@@ -114,7 +114,6 @@ class AdminCustomTest(unittest.TestCase):
         are_different = False
         module_url = "admin/index.php?route=payment/mp_transparente"
         url = "%s%s%s" % (self.base_url, module_url, self.token)
-        print("visiting %s" % url)
         I.visit_url(url)
         payment_methods = I._browser.find_by_name(
             self.fields["custom"]["accepted_payment_methods"])

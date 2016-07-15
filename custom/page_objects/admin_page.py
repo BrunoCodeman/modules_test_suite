@@ -14,7 +14,6 @@ class AdminPage(BasePage):
     def fill_public_key(self, pk):
         I = self
         I.fill_field(self.config['custom']['public_key']).with_value(pk)
-        # self._browser.fill(self.config['admin']['public_key'], pk)
         return self
 
     def fill_access_token(self, access_token):
@@ -28,35 +27,30 @@ class AdminPage(BasePage):
         I = self
         I.click_on_list(self.config['custom'][
                         'debug_mode']).then().select_element(debug_mode)
-        # self._browser.select(self.config['admin']['debug_mode'], debug_mode)
         return self
 
     def select_status(self, status):
         I = self
         I.click_on_list(self.config['custom']['status']
                         ).then().select_element(status)
-        # self._browser.select(self.config['admin']['status'], status)
         return self
 
     def select_maximum_installments(self, max_installments):
         I = self
         I.click_on_list(self.config['custom']['installments']).then(
         ).select_element(max_installments)
-       # self._browser.select(self.config['admin']['installments'], max_installments)
         return self
 
     def select_category(self, store_category):
         I = self
         I.click_on_list(self.config['custom']['category']).then(
         ).select_element(store_category)
-        # self._browser.select(self.config['admin']['category'], store_category)
         return self
 
     def select_country(self, country):
         I = self
         I.click_on_list(self.config['custom'][
                         'country']).then().select_element(country)
-        # self._browser.select(self.config['admin']['country'], country)
         return self
 
     def check_payment_methods(self, payment_methods=[]):
@@ -71,7 +65,6 @@ class AdminPage(BasePage):
     def select_order_status(self, order_status, value):
         I, desired_status = self, '%s_order_status' % order_status
         I.click_on_list(self.config['custom'][desired_status]).then().select_element(value)
-        # self._browser.select(self.config['admin'][desired_status], value)
         return self
 
     def login(self, username, password):

@@ -20,7 +20,6 @@ class AdminTicketTest(unittest.TestCase):
         self.admin_page = AdminPage()
         self.token = self.admin_page.login(self.config["common_fields"]['login'][
             'username'], self.config["common_fields"]['login']['password'])
-        print("Log in token obtained: %s" % self.token)
 
     def tearDown(self):
         print("\nfinished at: %s " % datetime.now().strftime("%x %X"))
